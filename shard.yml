@@ -1,0 +1,10 @@
+name: support
+version: 0.1.0
+description: 'A collection of useful utilities for Crystal projects.'
+
+authors:
+  - Filip Prober <filip.prober@condition.at>
+
+crystal: '>= 1.17.1'
+
+license: MIT
