@@ -55,10 +55,4 @@ describe String do
     "support package".before_last(" ").should eq "support"
     "yvette\\tyv0et0te".before_last("\\t").should eq "yvette"
   end
-
-  it "reverse" do
-    "FooBar".reverse.should eq "raBooF"
-    "Teniszütő".reverse.should eq "őtüzsineT"
-    "❤MultiByte☆".reverse.should eq "☆etyBitluM❤"
-  end
 end

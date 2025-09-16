@@ -108,18 +108,4 @@ class String
   def before_last(search : Int32) : String
     return self.before_last(search.to_s)
   end
-
-  #
-  # Reverse the given string.
-  #
-  # ```
-  # require "support/string"
-  #
-  # "Hello".reverse   # => "olleH"
-  # "Crystal".reverse # => "latsyrC"
-  # ```
-  #
-  def reverse : String
-    return self.chars.reverse.join
-  end
 end
