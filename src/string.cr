@@ -270,9 +270,9 @@ class String
     if count == 1
       if prepend_count
         return "#{Number.format(count)} #{self}"
-      else
-        return self
       end
+
+      return self
     end
 
     return "#{Number.format(count)} #{Inflector.pluralize(self)}" if prepend_count
