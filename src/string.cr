@@ -219,7 +219,7 @@ class String
   #
   def lcfirst : String
     return self if self.empty?
-    return self[0].downcase + self[1..-1]
+    return self[0].lower + self[1..-1]
   end
 
   #
@@ -251,7 +251,7 @@ class String
     return self
       .gsub(/\s+/, "")
       .gsub(/(.)(?=[A-Z])/, "\\1#{delimiter}")
-      .downcase
+      .lower
   end
 
   #
@@ -270,5 +270,18 @@ class String
     end
 
     return self[0, limit]? || ""
+  end
+
+  #
+  # Convert the given string to upper-case.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "crystal".upper # => "CRYSTAL"
+  # ```
+  #
+  def upper : String
+    return self.upcase
   end
 end

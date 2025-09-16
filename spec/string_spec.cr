@@ -131,4 +131,9 @@ describe String do
     "abcdef".take(10).should eq "abcdef"
     "üöä".take(1).should eq "ü"
   end
+
+  it "upper" do
+    "foo bar baz".upper.should eq "FOO BAR BAZ"
+    "foO bAr BaZ".upper.should eq "FOO BAR BAZ"
+  end
 end
