@@ -13,6 +13,18 @@ describe String do
     "han2nah".after(2).should eq "nah"
   end
 
+  it "after_last" do
+    "yvette".after_last("yve").should eq "tte"
+    "yvette".after_last("t").should eq "e"
+    "ééé yvette".after_last("t").should eq "e"
+    "yvette".after_last("tte").should eq ""
+    "yvette".after_last("xxxx").should eq "yvette"
+    "yvette".after_last("").should eq "yvette"
+    "yv0et0te".after_last("0").should eq "te"
+    "yv0et0te".after_last(0).should eq "te"
+    "----foo".after_last("---").should eq "foo"
+  end
+
   it "reverse" do
     "FooBar".reverse.should eq "raBooF"
     "Teniszütő".reverse.should eq "őtüzsineT"
