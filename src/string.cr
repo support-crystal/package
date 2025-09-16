@@ -221,4 +221,23 @@ class String
   def lower : String
     return self.downcase
   end
+
+  #
+  # Convert a string to snake case.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "fooBar".snake      # => "foo_bar"
+  # "fooBar".snake("-") # => "foo-bar"
+  # ```
+  #
+  def snake(delimiter : String = "_") : String
+    return self if self == self.downcase
+
+    self
+      .gsub(/\s+/, "")
+      .gsub(/(.)(?=[A-Z])/, "\\1#{delimiter}")
+      .downcase
+  end
 end

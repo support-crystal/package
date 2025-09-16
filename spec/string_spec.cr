@@ -103,4 +103,15 @@ describe String do
     "FOO BAR BAZ".lower.should eq "foo bar baz"
     "foO bAr BaZ".lower.should eq "foo bar baz"
   end
+
+  it "snake" do
+    "CRYSTALPackage".snake.should eq "c_r_y_s_t_a_l_package"
+    "CrystalPackage".snake.should eq "crystal_package"
+    "Crystal   Package".snake.should eq "crystal_package"
+
+    "foo-bar".snake.should eq "foo-bar"
+    "Foo-Bar".snake.should eq "foo-_bar"
+    "Foo_Bar".snake.should eq "foo__bar"
+    "ŻółtaŁódka".snake.should eq "żółtałódka"
+  end
 end
