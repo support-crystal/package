@@ -196,6 +196,19 @@ class String
   end
 
   #
+  # Convert a string to kebab case.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "fooBar".kebab # => "foo-bar"
+  # ```
+  #
+  def kebab : String
+    return self.snake("-")
+  end
+
+  #
   # Convert the first character of the given string to lower-case.
   #
   # ```

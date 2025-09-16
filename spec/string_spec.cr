@@ -91,6 +91,13 @@ describe String do
     "foobarbar".between_first("foo", "bar").should eq ""
   end
 
+  it "kebab" do
+    "SupportPackage".kebab.should eq "support-package"
+    "Support Package".kebab.should eq "support-package"
+    "Support ❤Package".kebab.should eq "support❤-package"
+    "".kebab.should eq ""
+  end
+
   it "lcfirst" do
     "".lcfirst.should eq ""
     "Support".lcfirst.should eq "support"
