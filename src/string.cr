@@ -219,7 +219,7 @@ class String
   #
   def lcfirst : String
     return self if self.empty?
-    return self[0].lower + self[1..-1]
+    return self[0].downcase + self[1..-1]
   end
 
   #
@@ -270,6 +270,20 @@ class String
     end
 
     return self[0, limit]? || ""
+  end
+
+  #
+  # Make a string's first character uppercase.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "foo bar".ucfirst # => "Foo bar"
+  # ```
+  #
+  def ucfirst : String
+    return self if self.empty?
+    return self[0].upcase + self[1..-1]
   end
 
   #

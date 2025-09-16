@@ -132,6 +132,14 @@ describe String do
     "üöä".take(1).should eq "ü"
   end
 
+  it "ucfirst" do
+    "support".ucfirst.should eq "Support"
+    "crystal support".ucfirst.should eq "Crystal support"
+    "мама".ucfirst.should eq "Мама"
+    "мама мыла раму".ucfirst.should eq "Мама мыла раму"
+    "".ucfirst.should eq ""
+  end
+
   it "upper" do
     "foo bar baz".upper.should eq "FOO BAR BAZ"
     "foO bAr BaZ".upper.should eq "FOO BAR BAZ"
