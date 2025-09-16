@@ -108,4 +108,47 @@ class String
   def before_last(search : Int32) : String
     return self.before_last(search.to_s)
   end
+
+  #
+  # Get the portion of a string between two given values.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "This is my name".between("This", "name") # => " is my "
+  # ```
+  #
+  def between(from : String, to : String) : String
+    return self if from.empty? || to.empty?
+
+    start_index = self.index(from)
+    return self unless start_index
+
+    start_index += from.size
+    end_index = self.rindex(to, self.size - 1) # Find last occurrence of 'to'
+    return self unless end_index && end_index > start_index
+
+    return self[start_index...end_index]
+  end
+
+  #
+  # :ditto:
+  #
+  def between(from : Int32, to : Int32) : String
+    return self.between(from.to_s, to.to_s)
+  end
+
+  #
+  # :ditto:
+  #
+  def between(from : String, to : Int32) : String
+    return self.between(from, to.to_s)
+  end
+
+  #
+  # :ditto:
+  #
+  def between(from : Int32, to : String) : String
+    return self.between(from.to_s, to)
+  end
 end

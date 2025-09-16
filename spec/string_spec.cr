@@ -55,4 +55,23 @@ describe String do
     "support package".before_last(" ").should eq "support"
     "yvette\\tyv0et0te".before_last("\\t").should eq "yvette"
   end
+
+  it "between" do
+    "abc".between("", "c").should eq "abc"
+    "abc".between("a", "").should eq "abc"
+    "abc".between("", "").should eq "abc"
+    "abc".between("a", "c").should eq "b"
+    "dddabc".between("a", "c").should eq "b"
+    "abcddd".between("a", "c").should eq "b"
+    "dddabcddd".between("a", "c").should eq "b"
+    "hannah".between("ha", "ah").should eq "nn"
+    "[a]ab[b]".between("[", "]").should eq "a]ab[b"
+    "foofoobar".between("foo", "bar").should eq "foo"
+    "foobarbar".between("foo", "bar").should eq "bar"
+    "12345".between(1, 5).should eq "234"
+    "12345".between("1", 5).should eq "234"
+    "12345".between(1, "5").should eq "234"
+    "123456789".between("123", "6789").should eq "45"
+    "nothing".between("foo", "bar").should eq "nothing"
+  end
 end
