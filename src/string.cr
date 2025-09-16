@@ -253,4 +253,22 @@ class String
       .gsub(/(.)(?=[A-Z])/, "\\1#{delimiter}")
       .downcase
   end
+
+  #
+  # Take the first or last `limit` characters of a string.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "Build something amazing!".take(5) # => "Build"
+  # ```
+  #
+  def take(limit : Int32) : String
+    if limit < 0
+      limit = [self.size, -limit].min
+      return self[-limit, limit]
+    end
+
+    return self[0, limit]? || ""
+  end
 end

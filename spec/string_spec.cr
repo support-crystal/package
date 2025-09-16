@@ -121,4 +121,14 @@ describe String do
     "Foo_Bar".snake.should eq "foo__bar"
     "ŻółtaŁódka".snake.should eq "żółtałódka"
   end
+
+  it "take" do
+    "abcdef".take(2).should eq "ab"
+    "abcdef".take(-2).should eq "ef"
+    "abcdef".take(-10).should eq "abcdef"
+    "abcdef".take(0).should eq ""
+    "".take(2).should eq ""
+    "abcdef".take(10).should eq "abcdef"
+    "üöä".take(1).should eq "ü"
+  end
 end
