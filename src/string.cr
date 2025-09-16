@@ -1,3 +1,6 @@
+require "./number"
+require "./inflector"
+
 class String
   #
   # Return the remainder of a string after the first occurrence of a given value.
@@ -233,6 +236,48 @@ class String
   #
   def lower : String
     return self.downcase
+  end
+
+  #
+  # Get the plural form of an English word.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "car".plural   # => "cars"
+  # "child".plural # => "children"
+  # ```
+  #
+  # You may provide an integer as a second argument to the function to retrieve the singular or plural form of the string.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "car".plural(2)   # => "cars"
+  # "child".plural(1) # => "child"
+  # ```
+  #
+  # The `prepend_count` argument may be provided to prefix the pluralized string with the formatted `count`:
+  #
+  # ```
+  # require "support/string"
+  #
+  # "car".plural(2, prepend_count: true)      # => "2 cars"
+  # "child".plural(3000, prepend_count: true) # => "3,000 children"
+  # ```
+  #
+  def plural(count : Int32 = 2, prepend_count : Bool = false) : String
+    if count == 1
+      if prepend_count
+        return "#{Number.format(count)} #{self}"
+      else
+        return self
+      end
+    end
+
+    return "#{Number.format(count)} #{Inflector.pluralize(self)}" if prepend_count
+
+    return Inflector.pluralize(self)
   end
 
   #

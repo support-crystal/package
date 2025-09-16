@@ -111,6 +111,29 @@ describe String do
     "foO bAr BaZ".lower.should eq "foo bar baz"
   end
 
+  it "plural" do
+    "cat".plural.should eq "cats"
+    "Dog".plural.should eq "Dogs"
+    "Tomato".plural.should eq "Tomatoes"
+    "UserGroup".plural.should eq "UserGroups"
+    "ProductCategory".plural.should eq "ProductCategories"
+    "Child".plural.should eq "Children"
+
+    "cat".plural(1).should eq "cat"
+    "Dog".plural(1).should eq "Dog"
+    "Tomato".plural(1).should eq "Tomato"
+    "UserGroup".plural(1).should eq "UserGroup"
+    "ProductCategory".plural(1).should eq "ProductCategory"
+    "Child".plural(1).should eq "Child"
+
+    "cat".plural(10, prepend_count: true).should eq "10 cats"
+    "Dog".plural(4, prepend_count: true).should eq "4 Dogs"
+    "Tomato".plural(42, prepend_count: true).should eq "42 Tomatoes"
+    "UserGroup".plural(1, prepend_count: true).should eq "1 UserGroup"
+    "ProductCategory".plural(1000, prepend_count: true).should eq "1,000 ProductCategories"
+    "Child".plural(123000, prepend_count: true).should eq "123,000 Children"
+  end
+
   it "snake" do
     "CRYSTALPackage".snake.should eq "c_r_y_s_t_a_l_package"
     "CrystalPackage".snake.should eq "crystal_package"
