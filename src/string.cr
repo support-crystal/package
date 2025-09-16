@@ -35,9 +35,7 @@ class String
   # ```
   #
   def after_last(search : String) : String
-    if search.empty?
-      return self
-    end
+    return self if search.empty?
 
     index = self.rindex(search)
 
@@ -53,6 +51,34 @@ class String
   #
   def after_last(search : Int32) : String
     return self.after_last(search.to_s)
+  end
+
+  #
+  # Get the portion of a string before the first occurrence of a given value.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "This is my name".before("my name") # => "This is "
+  # ```
+  #
+  def before(search : String) : String
+    return self if search.empty?
+
+    index = self.index(search)
+
+    if index
+      return self[0...index]
+    end
+
+    return self
+  end
+
+  #
+  # :ditto:
+  #
+  def before(search : Int32) : String
+    return self.before(search.to_s)
   end
 
   #

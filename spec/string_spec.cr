@@ -25,6 +25,22 @@ describe String do
     "----foo".after_last("---").should eq "foo"
   end
 
+  it "before" do
+    "hannah".before("nah").should eq "han"
+    "hannah".before("n").should eq "ha"
+    "ééé hannah".before("han").should eq "ééé "
+    "hannah".before("xxxx").should eq "hannah"
+    "hannah".before("").should eq "hannah"
+    "han0nah".before("0").should eq "han"
+    "han0nah".before(0).should eq "han"
+    "han2nah".before(2).should eq "han"
+    "".before("").should eq ""
+    "a".before("a").should eq ""
+    "foo@bar.com".before("@").should eq "foo"
+    "foo@@bar.com".before("@").should eq "foo"
+    "@foo@bar.com".before("@").should eq ""
+  end
+
   it "reverse" do
     "FooBar".reverse.should eq "raBooF"
     "Teniszütő".reverse.should eq "őtüzsineT"
