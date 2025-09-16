@@ -98,4 +98,9 @@ describe String do
     "Мама".lcfirst.should eq "мама"
     "Мама мыла раму".lcfirst.should eq "мама мыла раму"
   end
+
+  it "lower" do
+    "FOO BAR BAZ".lower.should eq "foo bar baz"
+    "foO bAr BaZ".lower.should eq "foo bar baz"
+  end
 end

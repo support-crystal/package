@@ -208,4 +208,17 @@ class String
     return self if self.empty?
     return self[0].downcase + self[1..-1]
   end
+
+  #
+  # Convert the given string to lower-case.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "CRYSTAL".lower # => "crystal"
+  # ```
+  #
+  def lower : String
+    return self.downcase
+  end
 end
