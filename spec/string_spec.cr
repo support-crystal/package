@@ -90,4 +90,12 @@ describe String do
     "foofoobar".between_first("foo", "bar").should eq "foo"
     "foobarbar".between_first("foo", "bar").should eq ""
   end
+
+  it "lcfirst" do
+    "".lcfirst.should eq ""
+    "Support".lcfirst.should eq "support"
+    "Crystal Support".lcfirst.should eq "crystal Support"
+    "Мама".lcfirst.should eq "мама"
+    "Мама мыла раму".lcfirst.should eq "мама мыла раму"
+  end
 end

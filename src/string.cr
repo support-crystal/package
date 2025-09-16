@@ -194,4 +194,18 @@ class String
   def between_first(from : Int32, to : String) : String
     return self.between_first(from.to_s, to)
   end
+
+  #
+  # Convert the first character of the given string to lower-case.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "Foo Bar".lcfirst # => "foo Bar"
+  # ```
+  #
+  def lcfirst : String
+    return self if self.empty?
+    return self[0].downcase + self[1..-1]
+  end
 end
