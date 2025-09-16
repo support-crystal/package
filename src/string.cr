@@ -235,7 +235,7 @@ class String
   def snake(delimiter : String = "_") : String
     return self if self == self.lower
 
-    self
+    return self
       .gsub(/\s+/, "")
       .gsub(/(.)(?=[A-Z])/, "\\1#{delimiter}")
       .downcase
