@@ -125,7 +125,7 @@ class String
     return self unless start_index
 
     start_index += from.size
-    end_index = self.rindex(to, self.size - 1) # Find last occurrence of 'to'
+    end_index = self.rindex(to, self.size - 1)
     return self unless end_index && end_index > start_index
 
     return self[start_index...end_index]
@@ -150,5 +150,48 @@ class String
   #
   def between(from : Int32, to : String) : String
     return self.between(from.to_s, to)
+  end
+
+  #
+  # Get the smallest possible portion of a string between two given values.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "[a] bc [d]".between_first("[", "]") # => "a"
+  # ```
+  #
+  def between_first(from : String, to : String) : String
+    return self if from.empty? || to.empty?
+
+    start_index = self.index(from)
+    return self unless start_index
+
+    start_index += from.size
+    end_index = self.index(to, start_index)
+    return self unless end_index && end_index >= start_index
+
+    return self[start_index...end_index]
+  end
+
+  #
+  # :ditto:
+  #
+  def between_first(from : Int32, to : Int32) : String
+    return self.between_first(from.to_s, to.to_s)
+  end
+
+  #
+  # :ditto:
+  #
+  def between_first(from : String, to : Int32) : String
+    return self.between_first(from, to.to_s)
+  end
+
+  #
+  # :ditto:
+  #
+  def between_first(from : Int32, to : String) : String
+    return self.between_first(from.to_s, to)
   end
 end

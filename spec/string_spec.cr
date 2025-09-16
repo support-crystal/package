@@ -74,4 +74,20 @@ describe String do
     "123456789".between("123", "6789").should eq "45"
     "nothing".between("foo", "bar").should eq "nothing"
   end
+
+  it "between_first" do
+    "abc".between_first("", "c").should eq "abc"
+    "abc".between_first("a", "").should eq "abc"
+    "abc".between_first("", "").should eq "abc"
+    "abc".between_first("a", "c").should eq "b"
+    "dddabc".between_first("a", "c").should eq "b"
+    "abcddd".between_first("a", "c").should eq "b"
+    "dddabcddd".between_first("a", "c").should eq "b"
+    "hannah".between_first("ha", "ah").should eq "nn"
+    "[a]ab[b]".between_first("[", "]").should eq "a"
+    "hannah".between_first("ha", "ah").should eq "nn"
+    "[a]ab[b]".between_first("[", "]").should eq "a"
+    "foofoobar".between_first("foo", "bar").should eq "foo"
+    "foobarbar".between_first("foo", "bar").should eq ""
+  end
 end
