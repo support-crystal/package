@@ -134,6 +134,14 @@ describe String do
     "Child".plural(123000, prepend_count: true).should eq "123,000 Children"
   end
 
+  it "singular" do
+    "cats".singular.should eq "cat"
+    "Dogs".singular.should eq "Dog"
+    "Tomatoes".singular.should eq "Tomato"
+    "UserGroups".singular.should eq "UserGroup"
+    "ProductCategories".singular.should eq "ProductCategory"
+  end
+
   it "snake" do
     "CRYSTALPackage".snake.should eq "c_r_y_s_t_a_l_package"
     "CrystalPackage".snake.should eq "crystal_package"

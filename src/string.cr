@@ -281,6 +281,20 @@ class String
   end
 
   #
+  # Get the singular form of an English word.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "cars".singular     # => "car"
+  # "children".singular # => "child"
+  # ```
+  #
+  def singular : String
+    return Inflector.singularize(self)
+  end
+
+  #
   # Convert a string to snake case.
   #
   # ```
