@@ -1,6 +1,11 @@
 # Release Notes for 0.x
 
-## [Unreleased](https://github.com/support-crystal/package/compare/v0.3.0...0.x)
+## [Unreleased](https://github.com/support-crystal/package/compare/v0.4.0...0.x)
+
+## 0.4.0 - 2025-09-17
+
+- Added `String.ltrim`
+- Added `String.rtrim`
 
 ## 0.3.0 - 2025-09-16
 
