@@ -239,6 +239,19 @@ class String
   end
 
   #
+  # Remove all whitespace from the beginning of a string.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "   Crystal   ".ltrim # => "Crystal   "
+  # ```
+  #
+  def ltrim : String
+    return self.lstrip(" \t\r\n")
+  end
+
+  #
   # Get the plural form of an English word.
   #
   # ```

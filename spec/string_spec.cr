@@ -111,6 +111,15 @@ describe String do
     "foO bAr BaZ".lower.should eq "foo bar baz"
   end
 
+  it "ltrim" do
+    "   foo   bar ".ltrim.should eq "foo   bar "
+    "   123   ".ltrim.should eq "123   "
+    "だ".ltrim.should eq "だ"
+    "ム".ltrim.should eq "ム"
+    "   だ   ".ltrim.should eq "だ   "
+    "   ム".ltrim.should eq "ム"
+  end
+
   it "plural" do
     "cat".plural.should eq "cats"
     "Dog".plural.should eq "Dogs"
