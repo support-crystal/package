@@ -134,6 +134,15 @@ describe String do
     "Child".plural(123000, prepend_count: true).should eq "123,000 Children"
   end
 
+  it "rtrim" do
+    " foo   bar ".rtrim.should eq " foo   bar"
+    "   123   ".rtrim.should eq "   123"
+    "だ".rtrim.should eq "だ"
+    "ム".rtrim.should eq "ム"
+    "   だ   ".rtrim.should eq "   だ"
+    "ム   ".rtrim.should eq "ム"
+  end
+
   it "singular" do
     "cats".singular.should eq "cat"
     "Dogs".singular.should eq "Dog"

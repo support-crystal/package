@@ -281,6 +281,19 @@ class String
   end
 
   #
+  # Remove all whitespace from the end of a string.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "   Crystal   ".rtrim # => "   Crystal"
+  # ```
+  #
+  def rtrim : String
+    return self.rstrip(" \t\r\n")
+  end
+
+  #
   # Get the singular form of an English word.
   #
   # ```
