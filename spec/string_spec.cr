@@ -171,6 +171,12 @@ describe String do
     "ŻółtaŁódka".snake.should eq "żółtałódka"
   end
 
+  it "start" do
+    "test/string".start("/").should eq "/test/string"
+    "/test/string".start("/").should eq "/test/string"
+    "//test/string".start("/").should eq "/test/string"
+  end
+
   it "take" do
     "abcdef".take(2).should eq "ab"
     "abcdef".take(-2).should eq "ef"

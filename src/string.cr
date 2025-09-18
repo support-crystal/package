@@ -340,6 +340,26 @@ class String
   end
 
   #
+  # Begin a string with a single instance of a given value.
+  #
+  # ```
+  # require "support/string"
+  #
+  # "this/string".start("/")  # => "/this/string"
+  # "/this/string".start("/") # => "/this/string"
+  # ```
+  #
+  def start(prefix : String) : String
+    value = self
+
+    while value.starts_with?(prefix)
+      value = value[prefix.size..-1]
+    end
+
+    return prefix + value
+  end
+
+  #
   # Take the first or last `limit` characters of a string.
   #
   # ```
